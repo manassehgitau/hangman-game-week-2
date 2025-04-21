@@ -1,6 +1,15 @@
 import random 
+from rich.console import Console
+from rich.markdown import Markdown
+from rich.panel import Panel
 
-total_attempts = 7
+console = Console()
+
+console.print(Panel("🎮 [bold magenta]Welcome to Hangman CLI![/bold magenta] 🎮", expand=False))
+
+console.print("[bold cyan]Guess the word[/bold cyan] and save the hangman!\n")
+
+total_attempts = 6
 
 Themes = {
     "history": [
@@ -26,37 +35,37 @@ Themes = {
     ]
 }
 
-HANGMAN_PICS = ['''
+HANGMAN_PICS = [r'''
      +---+
          |
          |
          |
-        ===''', '''
+        ===''', r'''
      +---+
      O   |
         |
         |
-       ===''', '''
+       ===''', r'''
     +---+
     O   |
     |   |
         |
-       ===''', '''
+       ===''', r'''
     +---+
     O   |
    /|   |
         |
-       ===''', '''
+       ===''', r'''
     +---+
     O   |
    /|\  |
         |
-       ===''', '''
+       ===''', r'''
     +---+
     O   |
    /|\  |
    /    |
-       ===''', '''
+       ===''', r'''
     +---+
     O   |
    /|\  |
@@ -70,7 +79,6 @@ Enter a theme you want for the hangman game?:
                      1. history
                      2. computers
                      3. cars
-                     4. quit
 '''))
 
 hangman_words = Themes[available_themes[chosen_theme - 1]]
